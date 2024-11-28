@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Victoria</title>
+
+    <style>
+        body{
+            background-color: rgb(227, 79, 118)
+        }
+
+        .painel{
+            background-color: white;
+            border: 2px solid #ffffff; /* Cor da borda */
+            border-radius: 25px; /* Bordas arredondadas */
+            padding: 75px; /* Espaçamento interno */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+            width: 600px; /* Largura do painel */
+            height: 720px;
+            text-align: center; /* Centraliza o texto */
+            font-family: 'Caveat', cursive;
+        }
+        #sim{
+            height: 40px;
+            width: 60px;
+            background-color: red;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            margin-left: -50px;
+        }
+        #nao{
+            position: absolute;
+            height: 40px;
+            width: 60px;
+            background-color: red;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            margin-left: 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="painel">
+        <h1> MEU AMOR VICTORIA!</h1>
+        <img src="https://media1.tenor.com/m/fLfRTACXL2cAAAAC/cute-birthday.gif" alt="">
+        <h2>Parabéns amor, 1 ano de namoro!
+            Espero que seja o primeiro de muitos, te amoo muitooo e quero está sempre na sua vida forever.
+            TE AMOOOO MUITOOOO!!!❤️❤️ </h2>
+        
+    </div>
+
+    <script>
+        function fuja(){
+            var botaoNao = document.getElementById("nao")
+
+            var larguraJanela = window.innerWidth;
+            var alturaJanela = window.innerHeight;
+
+            var maxX = larguraJanela - botaoNao.offsetWidth;
+            var maxY = alturaJanela - botaoNao.offsetHeight;
+
+            var aleatorioX = Math.floor(Math.random() * maxX);
+            var aleatorioY = Math.floor(Math.random() * maxY);
+
+            botaoNao.style.left = aleatorioX + "px";
+            botaoNao.style.top = aleatorioY + "px";
+
+        }
+    </script>
+
+</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confetes na Tela</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            background: linear-gradient(135deg, rgb(255, 0, 0), rgb(255, 165, 0), rgb(0, 128, 0), rgb(0, 0, 255), rgb(75, 0, 130), rgb(148, 0, 211));
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+        }
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+h1 {
+    font-size: 3em;
+        }
+        .confete {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0.8;
+            pointer-events: none;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function criarConfete() {
+            const confete = document.createElement('div');
+            confete.className = 'confete';
+            confete.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confete.style.left = `${Math.random() * window.innerWidth}px`;
+            confete.style.top = `-10px`; // Começa acima da tela
+
+            document.body.appendChild(confete);
+
+            // Animação do confete
+            const animacao = setInterval(() => {
+                const top = parseFloat(confete.style.top);
+                if (top < window.innerHeight) {
+                    confete.style.top = `${top + 2}px`; // Move o confete para baixo
+                } else {
+                    clearInterval(animacao);
+                    confete.remove(); // Remove o confete quando sai da tela
+                }
+            }, 20);
+        }
+
+        // Cria confetes a cada 100ms
+        setInterval(criarConfete, 100);
+    </script>
+</head>
+</html>
